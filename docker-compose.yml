@@ -104,7 +104,7 @@ services:
   hydra:
     image: oryd/hydra:${HYDRA_TAG}
     command:
-      serve -c /etc/config/hydra/hydra.yml public --dangerous-force-http
+      serve -c /etc/config/hydra/hydra.yml public 
     volumes:
       -
         type: bind
