@@ -63,16 +63,9 @@
     handle /registry* {
         redir https://registry.deploy1.voiceintern.com/
     }
-    handle /oauth* {
-        redir https://oauth.deploy1.voiceintern.com/
-    }
 }
 
 registry.deploy1.voiceintern.com {
     reverse_proxy registry:8080
-    rewrite * {path}
-}
-oauth.deploy1.voiceintern.com {
-    reverse_proxy oauth:8080
     rewrite * {path}
 }
