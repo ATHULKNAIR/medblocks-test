@@ -32,9 +32,7 @@ services:
       ABAC_ENABLED: "false"
     ports:
       - "8080:8080"
-    volumes:
-      - ./application.yml:/application.yml
-    command: "java -Dspring.config.location=file:/application.yml -jar ehrbase.jar"
+    
 
   fhir:
     image: "tornadoalert/fhir:${FHIR_TAG}"
@@ -187,13 +185,7 @@ services:
     environment:
       HYDRA_URL: ${DOMAIN_NAME:-http://localhost}/hydra/admin
 
-  oauth:
-    image: medblocks/oauth-client:${OAUTH_TAG}
-    environment:
-      OIDC_BASE_URL: ${DOMAIN_NAME:-http://localhost}/hydra/public
-      CLIENT_ID: ${HYDRA_CLIENT_ID}
-      REDIRECT_URL: ${DOMAIN_NAME:-http://localhost}/redirect.html
-      FHIR_ENDPOINT: ${DOMAIN_NAME:-http://localhost}/fhir
+  
 
   test:
     image: ubuntu
