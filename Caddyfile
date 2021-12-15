@@ -61,11 +61,11 @@
         respond "Not Found" 404
     }
     handle /registry* {
-        redir https://registry.deploy0.voiceintern.com/
+        redir https://registry.deploy1.voiceintern.com/
     }
 }
 
-registry.deploy0.voiceintern.com {
+registry.deploy1.voiceintern.com {
     reverse_proxy registry:8080
     rewrite * {path}
 }
